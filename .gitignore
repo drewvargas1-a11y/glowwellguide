@@ -1,0 +1,8 @@
+# Screenshots (local dev only)
+temporary screenshots/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
