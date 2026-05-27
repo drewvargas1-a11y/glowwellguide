@@ -3,19 +3,672 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlowGrid — Beauty & Personal Care Tech Reviews</title>
+  <title>GlowWell Guide — Health & Beauty Reviews</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+
   <style>
-    body { margin: 0; background: #0A0A0A; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: sans-serif; color: #F0F0EE; }
-    .placeholder { text-align: center; }
-    h1 { font-size: 48px; margin-bottom: 12px; }
-    h1 span { color: #E91E8C; }
-    p { color: #666; font-size: 16px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #FAF8F5;
+      color: #1C1814;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── BENTO GRID ── */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 252px 252px;
+      gap: 12px;
+    }
+
+    .bento-hero  { grid-column: 1 / 3; grid-row: 1 / 3; }
+    .bento-sec1  { grid-column: 3 / 4; grid-row: 1 / 2; }
+    .bento-tall  { grid-column: 4 / 5; grid-row: 1 / 3; }
+    .bento-sec2  { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+    /* ── CARDS ── */
+    .card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .card:hover  { transform: scale(1.018); }
+    .card:active { transform: scale(1.005); }
+    .card:focus-visible { outline: 3px solid #D13A6B; outline-offset: 3px; }
+
+    /* Card gradient themes */
+    .g-rose   { background: linear-gradient(145deg, #C8305E 0%, #E06B42 50%, #F2C03A 100%); }
+    .g-purple { background: linear-gradient(145deg, #4C2EB4 0%, #8B52C8 55%, #BF80D8 100%); }
+    .g-teal   { background: linear-gradient(145deg, #157860 0%, #28B094 55%, #65D4BA 100%); }
+    .g-amber  { background: linear-gradient(145deg, #C46808 0%, #E89828 60%, #F0CE48 100%); }
+    .g-blue   { background: linear-gradient(145deg, #1448B4 0%, #2884CC 55%, #58B8E8 100%); }
+    .g-blush  { background: linear-gradient(145deg, #BC2468 0%, #DE5C98 55%, #EE98C4 100%); }
+    .g-dark   { background: #141010; }
+    .g-white  { background: #FFFFFF; border: 1px solid #EDE8E4; }
+
+    /* ── IMAGE CARDS ── */
+    .img-card { overflow: hidden; }
+    .img-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .img-card:hover img { transform: scale(1.07); }
+    .img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,8,6,0.82) 0%, rgba(12,8,6,0.2) 55%, transparent 100%);
+    }
+    .img-content { position: relative; z-index: 2; }
+
+    /* ── TAGS ── */
+    .tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+    }
+    .tag-glass { background: rgba(255,255,255,0.22); color: white; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.18); }
+    .tag-dark  { background: rgba(0,0,0,0.25); color: white; backdrop-filter: blur(10px); }
+    .tag-rose  { background: #FDE4EC; color: #C8305E; }
+    .tag-purple{ background: #EDE8FC; color: #4C2EB4; }
+    .tag-teal  { background: #DFFAF3; color: #157860; }
+    .tag-amber { background: #FDF2DC; color: #C46808; }
+    .tag-blue  { background: #E0EFFC; color: #1448B4; }
+
+    /* ── NAV ── */
+    .nav-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #6B6360;
+      text-decoration: none;
+      transition: color 0.15s ease;
+      padding: 4px 0;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1.5px;
+      background: #1C1814;
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover { color: #1C1814; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── BUTTONS ── */
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #1C1814; color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
+    }
+    .btn-dark:hover { background: #2C2420; transform: translateY(-2px); }
+    .btn-dark:active { transform: translateY(0); }
+    .btn-dark:focus-visible { outline: 3px solid #D13A6B; outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent; color: #1C1814;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.875rem; font-weight: 600;
+      padding: 0.6rem 1.25rem;
+      border-radius: 100px;
+      border: 1.5px solid #D4CCC8;
+      cursor: pointer; text-decoration: none;
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.15s ease;
+    }
+    .btn-outline:hover { border-color: #1C1814; transform: translateY(-2px); }
+    .btn-outline:active { transform: translateY(0); }
+    .btn-outline:focus-visible { outline: 3px solid #D13A6B; outline-offset: 3px; }
+
+    /* ── PRODUCT CARDS ── */
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #EDE8E4;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(28,24,20,0.1);
+    }
+    .product-card:active { transform: translateY(-2px); }
+    .product-card:focus-visible { outline: 3px solid #D13A6B; outline-offset: 3px; }
+
+    /* ── GUIDE CARDS ── */
+    .guide-card {
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease;
+      background: white;
+      border: 1px solid #EDE8E4;
+    }
+    .guide-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 36px rgba(28,24,20,0.1);
+    }
+    .guide-card:active { transform: translateY(-2px); }
+    .guide-card:focus-visible { outline: 3px solid #D13A6B; outline-offset: 3px; }
+
+    /* ── NEWSLETTER INPUT ── */
+    .nl-input {
+      flex: 1;
+      background: rgba(255,255,255,0.18);
+      border: 1.5px solid rgba(255,255,255,0.28);
+      border-radius: 100px;
+      color: white;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9375rem; font-weight: 400;
+      padding: 0.75rem 1.375rem;
+      outline: none;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+    .nl-input::placeholder { color: rgba(255,255,255,0.55); }
+    .nl-input:focus { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.55); }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #A09896;
+    }
+
+    /* ── STARS ── */
+    .stars { color: #E89828; letter-spacing: -0.04em; font-size: 0.8125rem; }
+
+    /* ── FOOTER LINK ── */
+    .footer-link {
+      font-size: 0.875rem;
+      color: #8C8280;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    .footer-link:hover { color: #1C1814; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 220px 220px;
+      }
+      .bento-hero  { grid-column: 1 / 3; grid-row: 1 / 2; }
+      .bento-sec1  { grid-column: 1 / 2; grid-row: 2 / 3; }
+      .bento-tall  { grid-column: 2 / 3; grid-row: 2 / 4; }
+      .bento-sec2  { grid-column: 1 / 2; grid-row: 3 / 4; }
+    }
+    @media (max-width: 600px) {
+      .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .bento > * { grid-column: unset !important; grid-row: unset !important; min-height: 220px; }
+      .bento-hero { min-height: 300px; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="placeholder">
-    <h1>Glow<span>Grid</span></h1>
-    <p>Beauty &amp; Personal Care Tech Reviews — Coming Soon</p>
+
+  <!-- ══ NAV ══ -->
+  <header style="background: #FAF8F5; position: sticky; top: 0; z-index: 50; border-bottom: 1px solid #EDE8E4;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px;">
+
+      <!-- Logo -->
+      <a href="/" style="display:flex; align-items:center; gap:9px; text-decoration:none; flex-shrink:0;">
+        <div style="width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,#C8305E 0%,#E06B42 55%,#F2C03A 100%); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2C8 2 5 5 5 8.5C5 10.4 6.3 12 8 12C9.7 12 11 10.4 11 8.5C11 5 8 2 8 2Z" fill="white" opacity="0.9"/>
+            <path d="M8 6.5C8 6.5 6.7 7.8 6.7 9.2C6.7 10.1 7.25 10.8 8 10.8C8.75 10.8 9.3 10.1 9.3 9.2C9.3 7.8 8 6.5 8 6.5Z" fill="white"/>
+          </svg>
+        </div>
+        <span style="font-size:1rem; font-weight:800; color:#1C1814; letter-spacing:-0.02em;">GlowWell<span style="color:#C8305E;">Guide</span></span>
+      </a>
+
+      <!-- Links -->
+      <nav style="display:flex; align-items:center; gap:1.75rem;" class="hidden md:flex">
+        <a href="#" class="nav-link">Skincare</a>
+        <a href="#" class="nav-link">Hair Care</a>
+        <a href="#" class="nav-link">Wellness</a>
+        <a href="#" class="nav-link">Grooming</a>
+        <a href="#" class="nav-link">Fitness</a>
+        <a href="#" class="nav-link">Gift Guides</a>
+      </nav>
+
+      <!-- Right -->
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button aria-label="Search" style="width:36px; height:36px; border-radius:50%; background:transparent; border:1.5px solid #D4CCC8; color:#6B6360; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color 0.15s, color 0.15s;" onmouseover="this.style.borderColor='#1C1814';this.style.color='#1C1814'" onmouseout="this.style.borderColor='#D4CCC8';this.style.color='#6B6360'">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="#newsletter" class="btn-dark" style="padding:0.5rem 1.1rem;">Get Top Picks</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ AFFILIATE DISCLOSURE BAR ══ -->
+  <div style="background:#FDF2DC; border-bottom:1px solid #F0DFB8; padding:8px 2rem; text-align:center;">
+    <p style="font-size:0.75rem; color:#8C6820; max-width:1280px; margin:0 auto;">
+      <strong>Disclosure:</strong> GlowWell Guide is a participant in the Amazon Associates Program and other affiliate programs. We earn a small commission when you buy through our links — at no extra cost to you. <a href="#" style="color:#C46808; font-weight:600; text-decoration:underline;">Learn more</a>
+    </p>
   </div>
+
+  <!-- ══ HERO BENTO ══ -->
+  <section style="padding: 28px 0 36px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+
+      <div class="bento">
+
+        <!-- ── HERO (2×2) ── -->
+        <a href="blog/best-led-light-therapy-devices-2026.html" class="card g-rose bento-hero" style="display:flex; flex-direction:column; justify-content:flex-end; padding:2rem;">
+          <span class="tag tag-glass" style="margin-bottom:1.25rem; align-self:flex-start;">✦ Editor's Pick · Skincare</span>
+          <h1 style="font-size:clamp(1.5rem,2.8vw,2.125rem); font-weight:800; color:white; line-height:1.2; letter-spacing:-0.025em; margin-bottom:0.75rem;">
+            Best At-Home LED Light<br>Therapy Devices of 2026
+          </h1>
+          <p style="color:rgba(255,255,255,0.78); font-size:0.9375rem; line-height:1.6; margin-bottom:1.25rem;">
+            14 devices tested over 8 weeks. Here are the ones that actually delivered results.
+          </p>
+          <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,0.3);"></div>
+              <span style="color:rgba(255,255,255,0.75); font-size:0.8rem; font-weight:500;">GlowWell Team · 12 min read</span>
+            </div>
+            <span style="font-size:0.8rem; font-weight:700; color:white; background:rgba(255,255,255,0.2); padding:0.3rem 0.8rem; border-radius:100px; backdrop-filter:blur(8px);">Read Guide →</span>
+          </div>
+        </a>
+
+        <!-- ── SECONDARY 1 ── -->
+        <a href="#" class="card g-purple bento-sec1" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.375rem;">
+          <span class="tag tag-glass" style="margin-bottom:0.75rem; align-self:flex-start;">Hair Care</span>
+          <h3 style="font-size:1.05rem; font-weight:800; color:white; line-height:1.3; letter-spacing:-0.015em;">
+            Best Dyson Alternatives Under $150
+          </h3>
+          <p style="font-size:0.8125rem; color:rgba(255,255,255,0.7); margin-top:0.4rem; font-weight:400;">8 min read</p>
+        </a>
+
+        <!-- ── TALL (1×2) ── -->
+        <a href="#" class="card img-card bento-tall">
+          <img src="https://placehold.co/360x516/157860/FFFFFF?text=Wellness+Guide" alt="Wellness Tech Guide">
+          <div class="img-overlay"></div>
+          <div class="img-content" style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:1.375rem;">
+            <span class="tag tag-glass" style="margin-bottom:0.75rem; align-self:flex-start;">Wellness Tech</span>
+            <h3 style="font-size:1.1rem; font-weight:800; color:white; line-height:1.3; letter-spacing:-0.015em;">
+              Top 8 Wellness Gadgets Worth Buying in 2026
+            </h3>
+            <p style="font-size:0.8125rem; color:rgba(255,255,255,0.7); margin-top:0.4rem; font-weight:400;">10 min read</p>
+          </div>
+        </a>
+
+        <!-- ── SECONDARY 2 ── -->
+        <a href="#" class="card g-amber bento-sec2" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.375rem;">
+          <span class="tag tag-glass" style="margin-bottom:0.75rem; align-self:flex-start;">Grooming</span>
+          <h3 style="font-size:1.05rem; font-weight:800; color:white; line-height:1.3; letter-spacing:-0.015em;">
+            Best Electric Shavers of 2026, Ranked
+          </h3>
+          <p style="font-size:0.8125rem; color:rgba(255,255,255,0.7); margin-top:0.4rem; font-weight:400;">7 min read</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CATEGORY HIGHLIGHTS ══ -->
+  <section style="padding: 8px 0 40px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+        <span class="section-label">Browse by Category</span>
+        <a href="#" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">All Categories</a>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:10px;">
+
+        <!-- Skincare -->
+        <a href="#" class="card g-rose" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">✦</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Skincare<br>Devices</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">48 guides</p>
+        </a>
+
+        <!-- Hair -->
+        <a href="#" class="card g-purple" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">◈</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Hair Care<br>Tools</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">36 guides</p>
+        </a>
+
+        <!-- Wellness -->
+        <a href="#" class="card g-teal" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">◉</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Wellness<br>Tech</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">52 guides</p>
+        </a>
+
+        <!-- Grooming -->
+        <a href="#" class="card g-amber" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">⬡</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Grooming<br>Gadgets</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">29 guides</p>
+        </a>
+
+        <!-- Fitness -->
+        <a href="#" class="card g-blue" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">◎</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Fitness<br>Tech</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">41 guides</p>
+        </a>
+
+        <!-- Body -->
+        <a href="#" class="card g-blush" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
+          <span style="font-size:1.25rem; margin-bottom:0.5rem;">✿</span>
+          <h4 style="font-size:0.9375rem; font-weight:800; color:white; letter-spacing:-0.01em; line-height:1.25;">Body<br>&amp; Spa</h4>
+          <p style="font-size:0.7rem; color:rgba(255,255,255,0.7); margin-top:0.3rem; font-weight:500;">33 guides</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LATEST GUIDES ══ -->
+  <section style="padding: 8px 0 48px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <div>
+          <p class="section-label" style="margin-bottom:6px;">Latest Research</p>
+          <h2 style="font-size:1.625rem; font-weight:800; letter-spacing:-0.025em; color:#1C1814;">Top Buying Guides</h2>
+        </div>
+        <a href="#" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">View All</a>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+
+        <!-- Guide 1 -->
+        <a href="blog/best-hair-dryers-2026.html" class="guide-card">
+          <div style="height:190px; overflow:hidden; position:relative; background:linear-gradient(145deg,#4C2EB4,#8B52C8,#BF80D8);">
+            <img src="https://placehold.co/480x190/4C2EB4/FFFFFF?text=Hair+Dryers" alt="Hair Dryers" style="width:100%; height:100%; object-fit:cover; opacity:0.6; transition:transform 0.45s ease;">
+            <div style="position:absolute; inset:0; display:flex; align-items:flex-end; padding:1rem;">
+              <span class="tag tag-glass">Hair Care</span>
+            </div>
+          </div>
+          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
+            <h3 style="font-size:1.0625rem; font-weight:800; letter-spacing:-0.015em; line-height:1.35; color:#1C1814; margin-bottom:0.5rem;">
+              10 Hair Dryers Stylists Actually Recommend in 2026
+            </h3>
+            <p style="font-size:0.8125rem; line-height:1.65; color:#7A7068; flex:1;">
+              From $40 drugstore picks to $500 pro tools — we break down every tier.
+            </p>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:1rem; padding-top:1rem; border-top:1px solid #EDE8E4;">
+              <div class="stars">★★★★★</div>
+              <span style="font-size:0.8125rem; font-weight:700; color:#C8305E;">Read Guide →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Guide 2 -->
+        <a href="blog/best-facial-steamers-under-100.html" class="guide-card">
+          <div style="height:190px; overflow:hidden; position:relative; background:linear-gradient(145deg,#C8305E,#E06B42,#F2C03A);">
+            <img src="https://placehold.co/480x190/C8305E/FFFFFF?text=Facial+Steamers" alt="Facial Steamers" style="width:100%; height:100%; object-fit:cover; opacity:0.5; transition:transform 0.45s ease;">
+            <div style="position:absolute; inset:0; display:flex; align-items:flex-end; padding:1rem;">
+              <span class="tag tag-glass">Skincare</span>
+            </div>
+          </div>
+          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
+            <h3 style="font-size:1.0625rem; font-weight:800; letter-spacing:-0.015em; line-height:1.35; color:#1C1814; margin-bottom:0.5rem;">
+              Best Facial Steamers Under $100 — Dermatologist Tested
+            </h3>
+            <p style="font-size:0.8125rem; line-height:1.65; color:#7A7068; flex:1;">
+              9 models. 6 skin types. One clear winner for every budget.
+            </p>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:1rem; padding-top:1rem; border-top:1px solid #EDE8E4;">
+              <div class="stars">★★★★½</div>
+              <span style="font-size:0.8125rem; font-weight:700; color:#C8305E;">Read Guide →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Guide 3 -->
+        <a href="blog/best-massage-guns-recovery.html" class="guide-card">
+          <div style="height:190px; overflow:hidden; position:relative; background:linear-gradient(145deg,#157860,#28B094,#65D4BA);">
+            <img src="https://placehold.co/480x190/157860/FFFFFF?text=Massage+Guns" alt="Massage Guns" style="width:100%; height:100%; object-fit:cover; opacity:0.5; transition:transform 0.45s ease;">
+            <div style="position:absolute; inset:0; display:flex; align-items:flex-end; padding:1rem;">
+              <span class="tag tag-glass">Fitness Tech</span>
+            </div>
+          </div>
+          <div style="padding:1.25rem; flex:1; display:flex; flex-direction:column;">
+            <h3 style="font-size:1.0625rem; font-weight:800; letter-spacing:-0.015em; line-height:1.35; color:#1C1814; margin-bottom:0.5rem;">
+              Best Massage Guns for Recovery — Every Budget Covered
+            </h3>
+            <p style="font-size:0.8125rem; line-height:1.65; color:#7A7068; flex:1;">
+              $40 to $400 — we rank every tier so you stop overpaying.
+            </p>
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-top:1rem; padding-top:1rem; border-top:1px solid #EDE8E4;">
+              <div class="stars">★★★★★</div>
+              <span style="font-size:0.8125rem; font-weight:700; color:#C8305E;">Read Guide →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TOP PICKS ══ -->
+  <section style="padding: 8px 0 52px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <div>
+          <p class="section-label" style="margin-bottom:6px;">Hand-Picked</p>
+          <h2 style="font-size:1.625rem; font-weight:800; letter-spacing:-0.025em; color:#1C1814;">Editor's Top Picks</h2>
+        </div>
+        <a href="#" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">View All</a>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+
+        <!-- Product 1 -->
+        <a href="https://www.amazon.com/dp/B00JRW7QCC?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+          <div style="height:160px; background:linear-gradient(145deg,#C8305E,#E06B42,#F2C03A); position:relative; overflow:hidden;">
+            <img src="https://placehold.co/320x160/C8305E/FFFFFF?text=NuFace+Mini" alt="NuFace Mini" style="width:100%; height:100%; object-fit:cover; opacity:0.55; transition:transform 0.4s ease;">
+          </div>
+          <div style="padding:1rem;">
+            <span class="tag tag-rose" style="margin-bottom:0.625rem; display:inline-block;">Skincare</span>
+            <h4 style="font-size:0.9375rem; font-weight:800; letter-spacing:-0.01em; line-height:1.3; color:#1C1814; margin-bottom:0.375rem;">NuFace Mini Facial Toning Device</h4>
+            <div class="stars" style="margin-bottom:0.5rem;">★★★★★</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:1.125rem; font-weight:800; color:#C8305E;">$199</span>
+              <span style="font-size:0.75rem; font-weight:700; color:#C8305E; background:#FDE4EC; padding:0.25rem 0.6rem; border-radius:100px;">Check Price →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="https://www.amazon.com/dp/B0B61XH5YT?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+          <div style="height:160px; background:linear-gradient(145deg,#4C2EB4,#8B52C8,#BF80D8); position:relative; overflow:hidden;">
+            <img src="https://placehold.co/320x160/4C2EB4/FFFFFF?text=Dyson+Airwrap" alt="Dyson Airwrap" style="width:100%; height:100%; object-fit:cover; opacity:0.55; transition:transform 0.4s ease;">
+          </div>
+          <div style="padding:1rem;">
+            <span class="tag tag-purple" style="margin-bottom:0.625rem; display:inline-block;">Hair Care</span>
+            <h4 style="font-size:0.9375rem; font-weight:800; letter-spacing:-0.01em; line-height:1.3; color:#1C1814; margin-bottom:0.375rem;">Dyson Airwrap Multi-Styler</h4>
+            <div class="stars" style="margin-bottom:0.5rem;">★★★★★</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:1.125rem; font-weight:800; color:#C8305E;">$599</span>
+              <span style="font-size:0.75rem; font-weight:700; color:#4C2EB4; background:#EDE8FC; padding:0.25rem 0.6rem; border-radius:100px;">Check Price →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="https://www.amazon.com/dp/B0BFQJ1T75?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+          <div style="height:160px; background:linear-gradient(145deg,#157860,#28B094,#65D4BA); position:relative; overflow:hidden;">
+            <img src="https://placehold.co/320x160/157860/FFFFFF?text=FOREO+LUNA+4" alt="FOREO LUNA 4" style="width:100%; height:100%; object-fit:cover; opacity:0.55; transition:transform 0.4s ease;">
+          </div>
+          <div style="padding:1rem;">
+            <span class="tag tag-teal" style="margin-bottom:0.625rem; display:inline-block;">Skincare</span>
+            <h4 style="font-size:0.9375rem; font-weight:800; letter-spacing:-0.01em; line-height:1.3; color:#1C1814; margin-bottom:0.375rem;">FOREO LUNA 4 Face Massager</h4>
+            <div class="stars" style="margin-bottom:0.5rem;">★★★★½</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:1.125rem; font-weight:800; color:#C8305E;">$219</span>
+              <span style="font-size:0.75rem; font-weight:700; color:#157860; background:#DFFAF3; padding:0.25rem 0.6rem; border-radius:100px;">Check Price →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="https://www.amazon.com/dp/B0CJ4C9WWX?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+          <div style="height:160px; background:linear-gradient(145deg,#C46808,#E89828,#F0CE48); position:relative; overflow:hidden;">
+            <img src="https://placehold.co/320x160/C46808/FFFFFF?text=Theragun+Mini" alt="Theragun Mini" style="width:100%; height:100%; object-fit:cover; opacity:0.55; transition:transform 0.4s ease;">
+          </div>
+          <div style="padding:1rem;">
+            <span class="tag tag-amber" style="margin-bottom:0.625rem; display:inline-block;">Fitness Tech</span>
+            <h4 style="font-size:0.9375rem; font-weight:800; letter-spacing:-0.01em; line-height:1.3; color:#1C1814; margin-bottom:0.375rem;">Theragun Mini 2.0 Massage Gun</h4>
+            <div class="stars" style="margin-bottom:0.5rem;">★★★★★</div>
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-size:1.125rem; font-weight:800; color:#C8305E;">$179</span>
+              <span style="font-size:0.75rem; font-weight:700; color:#C46808; background:#FDF2DC; padding:0.25rem 0.6rem; border-radius:100px;">Check Price →</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEWSLETTER ══ -->
+  <section id="newsletter" style="padding: 0 0 56px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+      <div style="border-radius:24px; background:linear-gradient(135deg, #C8305E 0%, #E06B42 40%, #F2C03A 80%, #28B094 100%); padding:3.5rem 2.5rem; text-align:center; position:relative; overflow:hidden;">
+
+        <!-- Noise overlay -->
+        <div style="position:absolute; inset:0; opacity:0.04; background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E'); background-size:128px; pointer-events:none;"></div>
+
+        <div style="position:relative; z-index:2;">
+          <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:0.75rem;">Stay in the Know</p>
+          <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem); font-weight:800; color:white; letter-spacing:-0.03em; line-height:1.15; margin-bottom:0.875rem;">
+            Get Our Weekly Top Picks
+          </h2>
+          <p style="font-size:1rem; line-height:1.65; color:rgba(255,255,255,0.82); max-width:440px; margin:0 auto 2rem;">
+            New buying guides, deal alerts, and editor-tested picks — every Tuesday.
+          </p>
+          <form style="display:flex; gap:10px; max-width:420px; margin:0 auto;" onsubmit="return false;">
+            <input type="email" class="nl-input" placeholder="your@email.com">
+            <button type="submit" style="background:white; color:#1C1814; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.9rem; font-weight:700; padding:0.75rem 1.375rem; border-radius:100px; border:none; cursor:pointer; flex-shrink:0; transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" onfocus="this.style.transform='translateY(-2px)'" onblur="this.style.transform='translateY(0)'">
+              Subscribe
+            </button>
+          </form>
+          <p style="font-size:0.75rem; color:rgba(255,255,255,0.5); margin-top:1rem;">No spam. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer style="background:#1C1814; padding:48px 0 32px;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
+
+      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem;">
+
+        <!-- Brand -->
+        <div>
+          <div style="display:flex; align-items:center; gap:9px; margin-bottom:1rem;">
+            <div style="width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,#C8305E,#E06B42,#F2C03A); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <path d="M8 2C8 2 5 5 5 8.5C5 10.4 6.3 12 8 12C9.7 12 11 10.4 11 8.5C11 5 8 2 8 2Z" fill="white" opacity="0.9"/>
+                <path d="M8 6.5C8 6.5 6.7 7.8 6.7 9.2C6.7 10.1 7.25 10.8 8 10.8C8.75 10.8 9.3 10.1 9.3 9.2C9.3 7.8 8 6.5 8 6.5Z" fill="white"/>
+              </svg>
+            </div>
+            <span style="font-size:1rem; font-weight:800; color:white; letter-spacing:-0.02em;">GlowWell<span style="color:#E06B42;">Guide</span></span>
+          </div>
+          <p style="font-size:0.875rem; line-height:1.7; color:#8C8280; max-width:220px; margin-bottom:1rem;">
+            Expert reviews and buying guides for health, beauty, and wellness products.
+          </p>
+          <p style="font-size:0.75rem; color:#5A5250; line-height:1.6;">
+            GlowWell Guide participates in the Amazon Associates Program (tag: geargridrevie-20), Commission Junction, and Impact affiliate programs. We earn a commission on qualifying purchases at no extra cost to you.
+          </p>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h5 style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#5A5250; margin-bottom:1rem;">Categories</h5>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem;">
+            <li><a href="#" class="footer-link">Skincare Devices</a></li>
+            <li><a href="#" class="footer-link">Hair Care Tools</a></li>
+            <li><a href="#" class="footer-link">Wellness Tech</a></li>
+            <li><a href="#" class="footer-link">Grooming Gadgets</a></li>
+            <li><a href="#" class="footer-link">Fitness Tech</a></li>
+            <li><a href="#" class="footer-link">Body &amp; Spa</a></li>
+          </ul>
+        </div>
+
+        <!-- Guides -->
+        <div>
+          <h5 style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#5A5250; margin-bottom:1rem;">Popular Guides</h5>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem;">
+            <li><a href="#" class="footer-link">Best Under $50</a></li>
+            <li><a href="#" class="footer-link">Best Under $100</a></li>
+            <li><a href="#" class="footer-link">Gift Guides 2026</a></li>
+            <li><a href="#" class="footer-link">Product Comparisons</a></li>
+            <li><a href="#" class="footer-link">Editor's Picks</a></li>
+          </ul>
+        </div>
+
+        <!-- Site -->
+        <div>
+          <h5 style="font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#5A5250; margin-bottom:1rem;">Site</h5>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.625rem;">
+            <li><a href="#" class="footer-link">About Us</a></li>
+            <li><a href="#" class="footer-link">How We Test</a></li>
+            <li><a href="#" class="footer-link">Affiliate Disclosure</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div style="border-top:1px solid #2C2824; padding-top:1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;">
+        <p style="font-size:0.8125rem; color:#4A4240;">© 2026 GlowWell Guide. All rights reserved.</p>
+        <p style="font-size:0.8125rem; color:#4A4240;">glowwellguide.com</p>
+      </div>
+
+    </div>
+  </footer>
+
 </body>
 </html>

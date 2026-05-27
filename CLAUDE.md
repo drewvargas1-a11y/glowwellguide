@@ -36,11 +36,27 @@
 - If a logo is present, use it. If a color palette is defined, use those exact values — do not invent brand colors.
 
 ## Site Identity
-- **Site name:** GlowGrid
-- **Niche:** Beauty & Personal Care Tech — hair tools, skincare devices, grooming gadgets, wellness tech
-- **Affiliate program:** Amazon Associates (tag to be configured)
-- **Target audience:** People researching beauty and personal care product purchases
-- **Content format:** "Best X under $Y" buying guides, product comparisons, gift guides — same affiliate review template as GearGrid
+- **Site name:** GlowWell Guide
+- **Domain:** glowwellguide.com
+- **Niche:** Health, Beauty & Wellness — skincare devices, hair tools, wellness tech, grooming gadgets, fitness recovery, body & spa
+- **Affiliate programs:**
+  - Amazon Associates — tag: `geargridrevie-20`
+  - Commission Junction (CJ)
+  - Impact
+- **All Amazon links:** use `https://www.amazon.com/dp/ASIN?tag=geargridrevie-20` (direct) or `https://www.amazon.com/s?k=QUERY&tag=geargridrevie-20` (search). Always include `target="_blank" rel="nofollow noopener"`.
+- **Target audience:** People researching health, beauty, and wellness product purchases
+- **Content format:** "Best X under $Y" buying guides, ranked product reviews, gift guides, product comparisons
+
+## Design System (established — do not change without instruction)
+- **Style:** Swell-inspired bento grid, vibrant card-based layout
+- **Background:** Warm cream `#FAF8F5` (light, NOT dark)
+- **Primary accent:** Rose `#C8305E`
+- **Font:** Plus Jakarta Sans (weights 400–800) — loaded from Google Fonts
+- **Card corners:** 20px border-radius
+- **Card gradients:** rose `g-rose`, purple `g-purple`, teal `g-teal`, amber `g-amber`, blue `g-blue`, blush `g-blush`, dark `g-dark`
+- **Hero layout:** 4-col bento grid (2×2 hero + 2 secondary cards + 1 tall card)
+- **Affiliate disclosure:** Amber bar (`#FDF2DC`) directly below nav on every page — required
+- **Blog pages:** live in `/blog/` subfolder; nav links back to `../index.html`
 
 ## Anti-Generic Guardrails
 - **Colors:** Never use default Tailwind palette (indigo-500, blue-600, etc.). Pick a custom brand color and derive from it.
