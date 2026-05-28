@@ -158,6 +158,40 @@
       .pros-cons { grid-template-columns: 1fr; }
       .product-body { padding: 1.25rem; }
     }
+
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .main-nav { display: flex; }
+    .nav-right-btn { display: flex; }
+    .nav-hamburger {
+      display: none; width: 36px; height: 36px; border-radius: 50%;
+      background: transparent; border: 1.5px solid #D4CCC8; color: #6B6360;
+      cursor: pointer; align-items: center; justify-content: center;
+    }
+    .mob-menu {
+      display: none; flex-direction: column; gap: 0;
+      background: #FAF8F5; border-bottom: 2px solid #EDE8E4;
+      position: sticky; top: 60px; z-index: 49;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-size: 1rem; font-weight: 600; color: #1C1814; text-decoration: none;
+      padding: 1rem 1.5rem; border-bottom: 1px solid #EDE8E4; transition: background 0.12s;
+    }
+    .mob-menu a:hover { background: #F0EBE6; color: #C8305E; }
+    .mob-menu .mob-cta {
+      margin: 1rem 1.5rem 1.25rem; background: #1C1814; color: white;
+      border-radius: 100px; text-align: center; padding: 0.75rem 1.25rem; border-bottom: none;
+    }
+    .mob-menu .mob-cta:hover { background: #2C2420; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 768px) {
+      .main-nav { display: none !important; }
+      .nav-right-btn { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+    }
+    @media (max-width: 500px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -171,7 +205,7 @@
         </div>
         <span style="font-size:1rem; font-weight:800; color:#1C1814; letter-spacing:-0.02em;">LumaGrid<span style="color:#C8305E;">Reviews</span></span>
       </a>
-      <nav style="display:flex; align-items:center; gap:1.75rem;">
+      <nav class="main-nav" style="display:flex; align-items:center; gap:1.75rem;">
         <a href="../index.html#categories" class="nav-link">Skincare</a>
         <a href="../index.html#categories" class="nav-link">Hair Care</a>
         <a href="../index.html#categories" class="nav-link">Wellness</a>

@@ -288,7 +288,46 @@
     }
     .footer-link:hover { color: #1C1814; }
 
-    /* ── MOBILE ── */
+    /* ── RESPONSIVE GRIDS ── */
+    .cat-grid       { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; }
+    .guides-grid    { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .products-grid  { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .footer-grid    { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .nl-form        { display: flex; gap: 10px; max-width: 420px; margin: 0 auto; flex-wrap: wrap; }
+    .banner-tags    { display: flex; gap: 8px; flex-shrink: 0; }
+
+    /* ── HAMBURGER NAV ── */
+    .nav-hamburger {
+      display: none;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: transparent; border: 1.5px solid #D4CCC8; color: #6B6360;
+      cursor: pointer; align-items: center; justify-content: center;
+      transition: border-color 0.15s, color 0.15s;
+      flex-shrink: 0;
+    }
+    .nav-hamburger:hover { border-color: #1C1814; color: #1C1814; }
+
+    .mob-menu {
+      display: none; flex-direction: column; gap: 0;
+      background: #FAF8F5; border-bottom: 2px solid #EDE8E4;
+      position: sticky; top: 60px; z-index: 49;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a {
+      font-size: 1rem; font-weight: 600; color: #1C1814; text-decoration: none;
+      padding: 1rem 1.5rem; border-bottom: 1px solid #EDE8E4;
+      transition: background 0.12s, color 0.12s;
+    }
+    .mob-menu a:hover { background: #F0EBE6; color: #C8305E; }
+    .mob-menu a:last-child { border-bottom: none; }
+    .mob-menu .mob-cta {
+      margin: 1rem 1.5rem 1.25rem; background: #1C1814; color: white;
+      border-radius: 100px; text-align: center; font-size: 0.9rem;
+      padding: 0.75rem 1.25rem; border-bottom: none;
+    }
+    .mob-menu .mob-cta:hover { background: #2C2420; }
+
+    /* ── MOBILE BENTO ── */
     @media (max-width: 900px) {
       .bento {
         grid-template-columns: 1fr 1fr;
@@ -298,11 +337,31 @@
       .bento-sec1  { grid-column: 1 / 2; grid-row: 2 / 3; }
       .bento-tall  { grid-column: 2 / 3; grid-row: 2 / 4; }
       .bento-sec2  { grid-column: 1 / 2; grid-row: 3 / 4; }
+      .cat-grid     { grid-template-columns: repeat(3,1fr); }
+      .guides-grid  { grid-template-columns: repeat(2,1fr); }
+      .products-grid{ grid-template-columns: repeat(2,1fr); }
+      .footer-grid  { grid-template-columns: 1fr 1fr; gap: 2rem; }
     }
+
+    @media (max-width: 768px) {
+      .main-nav   { display: none !important; }
+      .nav-right  { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      .banner-tags { display: none; }
+    }
+
     @media (max-width: 600px) {
       .bento { grid-template-columns: 1fr; grid-template-rows: auto; }
       .bento > * { grid-column: unset !important; grid-row: unset !important; min-height: 220px; }
       .bento-hero { min-height: 300px; }
+      .cat-grid     { grid-template-columns: repeat(2,1fr); }
+      .guides-grid  { grid-template-columns: 1fr; }
+      .products-grid{ grid-template-columns: 1fr 1fr; }
+      .footer-grid  { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -325,7 +384,7 @@
       </a>
 
       <!-- Links -->
-      <nav style="display:flex; align-items:center; gap:1.75rem;">
+      <nav class="main-nav" style="display:flex; align-items:center; gap:1.75rem;">
         <a href="#" class="nav-link">Skincare</a>
         <a href="#" class="nav-link">Hair Care</a>
         <a href="#" class="nav-link">Wellness</a>
@@ -333,8 +392,13 @@
         <a href="blog/index.html" class="nav-link" style="color:#C8305E; font-weight:700;">All Guides</a>
       </nav>
 
+      <!-- Hamburger (mobile) -->
+      <button class="nav-hamburger" id="nav-toggle" aria-label="Open menu" onclick="var m=document.getElementById('mob-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
       <!-- Right -->
-      <div style="display:flex; align-items:center; gap:10px;">
+      <div class="nav-right" style="display:flex; align-items:center; gap:10px;">
         <button aria-label="Search" style="width:36px; height:36px; border-radius:50%; background:transparent; border:1.5px solid #D4CCC8; color:#6B6360; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color 0.15s, color 0.15s;" onmouseover="this.style.borderColor='#1C1814';this.style.color='#1C1814'" onmouseout="this.style.borderColor='#D4CCC8';this.style.color='#6B6360'">
           <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </button>
@@ -342,6 +406,16 @@
       </div>
     </div>
   </header>
+
+  <!-- Mobile Nav Menu -->
+  <div class="mob-menu" id="mob-menu">
+    <a href="#">Skincare</a>
+    <a href="#">Hair Care</a>
+    <a href="#">Wellness</a>
+    <a href="#">Fitness</a>
+    <a href="blog/index.html" style="color:#C8305E;">All Guides</a>
+    <a href="#newsletter" class="mob-cta">Get Top Picks</a>
+  </div>
 
   <!-- ══ AFFILIATE DISCLOSURE BAR ══ -->
   <div style="background:#FDF2DC; border-bottom:1px solid #F0DFB8; padding:8px 2rem; text-align:center;">
@@ -422,7 +496,7 @@
             <p style="font-size:1rem; font-weight:800; color:white; letter-spacing:-0.015em;">Browse All Buying Guides →</p>
           </div>
         </div>
-        <div style="display:flex; gap:8px;">
+        <div class="banner-tags">
           <span style="font-size:0.75rem; font-weight:600; background:rgba(200,48,94,0.25); color:#F2A0B8; padding:0.3rem 0.7rem; border-radius:100px;">LED Therapy</span>
           <span style="font-size:0.75rem; font-weight:600; background:rgba(76,46,180,0.25); color:#B8A8F0; padding:0.3rem 0.7rem; border-radius:100px;">Hair Dryers</span>
           <span style="font-size:0.75rem; font-weight:600; background:rgba(21,120,96,0.25); color:#7ADBC4; padding:0.3rem 0.7rem; border-radius:100px;">Massage Guns</span>
@@ -440,7 +514,7 @@
         <a href="#" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">All Categories</a>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:10px;">
+      <div class="cat-grid">
 
         <!-- Skincare -->
         <a href="#" class="card g-rose" style="display:flex; flex-direction:column; justify-content:flex-end; padding:1.125rem; min-height:130px; text-decoration:none;">
@@ -500,7 +574,7 @@
         <a href="blog/index.html" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">View All</a>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:14px;">
+      <div class="guides-grid">
 
         <!-- Guide 1 -->
         <a href="blog/best-hair-dryers-2026.html" class="guide-card">
@@ -584,7 +658,7 @@
         <a href="#" class="btn-outline" style="font-size:0.8125rem; padding:0.45rem 1rem;">View All</a>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+      <div class="products-grid">
 
         <!-- Product 1 -->
         <a href="https://www.amazon.com/dp/B00JRW7QCC?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
@@ -670,7 +744,7 @@
           <p style="font-size:1rem; line-height:1.65; color:rgba(255,255,255,0.82); max-width:440px; margin:0 auto 2rem;">
             New buying guides, deal alerts, and editor-tested picks — every Tuesday.
           </p>
-          <form style="display:flex; gap:10px; max-width:420px; margin:0 auto;" onsubmit="return false;">
+          <form class="nl-form" onsubmit="return false;">
             <input type="email" class="nl-input" placeholder="your@email.com">
             <button type="submit" style="background:white; color:#1C1814; font-family:'Plus Jakarta Sans',sans-serif; font-size:0.9rem; font-weight:700; padding:0.75rem 1.375rem; border-radius:100px; border:none; cursor:pointer; flex-shrink:0; transition:transform 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'" onfocus="this.style.transform='translateY(-2px)'" onblur="this.style.transform='translateY(0)'">
               Subscribe
@@ -686,7 +760,7 @@
   <footer style="background:#1C1814; padding:48px 0 32px;">
     <div style="max-width:1280px; margin:0 auto; padding:0 2rem;">
 
-      <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem;">
+      <div class="footer-grid">
 
         <!-- Brand -->
         <div>
