@@ -108,7 +108,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #FAF8F5; color: #1C1814; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body { overflow-x: hidden; background: #FAF8F5; color: #1C1814; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     .nav-link { font-size: 0.875rem; font-weight: 500; color: #6B6360; text-decoration: none; transition: color 0.15s; }
     .nav-link:hover { color: #1C1814; }
     .btn-dark { display: inline-flex; align-items: center; gap: 6px; background: #1C1814; color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.15s; }
@@ -175,6 +175,20 @@
     @media (max-width: 500px) {
       .related-grid { grid-template-columns: 1fr; }
     }
+  
+    @media (max-width: 480px) {
+      .product-body { padding: 1rem !important; }
+      .pros-cons { grid-template-columns: 1fr !important; }
+      .btn-amazon { width: 100%; justify-content: center; box-sizing: border-box; }
+      .spec-row { flex-wrap: wrap; gap: 0.2rem; }
+      .spec-value { text-align: right; word-break: break-word; }
+      .quick-pick { flex-wrap: wrap; }
+      .related-grid { grid-template-columns: 1fr !important; }
+      .product-header { height: 100px; }
+    }
+  
+    html { overflow-x: hidden; }
+    h1, h2, h3, h4 { overflow-wrap: break-word; word-break: break-word; }
   </style>
 </head>
 <body>

@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #FAF8F5; color: #1C1814; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    body { overflow-x: hidden; background: #FAF8F5; color: #1C1814; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     .nav-link { font-size: 0.875rem; font-weight: 500; color: #6B6360; text-decoration: none; transition: color 0.15s; }
     .nav-link:hover { color: #1C1814; }
     .btn-dark { display: inline-flex; align-items: center; gap: 6px; background: #1C1814; color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 600; padding: 0.6rem 1.25rem; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.15s; }
@@ -38,6 +38,18 @@
       .nav-right-btn { display: none !important; }
       .nav-hamburger { display: flex !important; }
     }
+  
+    @media (max-width: 640px) {
+      .value-grid-3 { grid-template-columns: 1fr !important; }
+      .value-grid-2 { grid-template-columns: 1fr !important; }
+      main { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    }
+    @media (max-width: 480px) {
+      .contact-grid { grid-template-columns: 1fr !important; }
+    }
+  
+    html { overflow-x: hidden; }
+    h1, h2, h3, h4 { overflow-wrap: break-word; word-break: break-word; }
   </style>
 </head>
 <body>
