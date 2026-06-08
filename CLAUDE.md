@@ -36,8 +36,8 @@
 - If a logo is present, use it. If a color palette is defined, use those exact values — do not invent brand colors.
 
 ## Site Identity
-- **Site name:** GlowWell Guide
-- **Domain:** glowwellguide.com
+- **Site name:** LumaGrid Reviews
+- **Domain:** lumagridreviews.com
 - **Niche:** Health, Beauty & Wellness — skincare devices, hair tools, wellness tech, grooming gadgets, fitness recovery, body & spa
 - **Affiliate programs:**
   - Amazon Associates — tag: `geargridrevie-20`
