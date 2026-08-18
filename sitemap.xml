@@ -485,6 +485,82 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Gift Guides (Aug 17, 2026) -->
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-beauty-gifts-for-her-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-wellness-gifts-for-women-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-stocking-stuffers-beauty-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-spa-gifts-under-100-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-hair-tool-gifts-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-self-care-gifts-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/blog/best-gifts-for-skincare-lovers-2026.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Category Hub Pages (Aug 17, 2026) -->
+  <url>
+    <loc>https://lumagridreviews.com/skincare-devices.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/hair-tools.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/wellness-recovery.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/beauty-gadgets.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lumagridreviews.com/gift-guides.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Static pages -->
   <url>
     <loc>https://lumagridreviews.com/about.html</loc>
