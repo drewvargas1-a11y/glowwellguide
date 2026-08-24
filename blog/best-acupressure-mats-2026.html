@@ -74,7 +74,8 @@
     .tag-teal { background: #D6F5EE; color: #157860; }
     .rank-badge { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: #157860; color: white; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; }
     .product-card { background: white; border-radius: 20px; border: 1px solid #EDE8E4; overflow: hidden; margin-bottom: 20px; }
-    .product-header { height: 140px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .product-header { height: 200px; position: relative; overflow: hidden; }
+    .product-header img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .product-body { padding: 1.5rem 2rem 2rem; }
     .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0; }
     .pros, .cons { background: #FAF8F5; border-radius: 12px; padding: 1rem 1.125rem; }
@@ -104,7 +105,7 @@
     .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     @media (max-width: 768px) { .pros-cons { grid-template-columns: 1fr; } .product-body { padding: 1.25rem; } .main-nav { display: none !important; } .nav-right-btn { display: none !important; } .nav-hamburger { display: flex !important; } }
     @media (max-width: 500px) { .related-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 480px) { .product-body { padding: 1rem !important; } .pros-cons { grid-template-columns: 1fr !important; } .btn-amazon { width: 100%; justify-content: center; box-sizing: border-box; } .spec-row { flex-wrap: wrap; gap: 0.2rem; } .quick-pick { flex-wrap: wrap; } .related-grid { grid-template-columns: 1fr !important; } .product-header { height: 100px; } }
+    @media (max-width: 480px) { .product-body { padding: 1rem !important; } .pros-cons { grid-template-columns: 1fr !important; } .btn-amazon { width: 100%; justify-content: center; box-sizing: border-box; } .spec-row { flex-wrap: wrap; gap: 0.2rem; } .quick-pick { flex-wrap: wrap; } .related-grid { grid-template-columns: 1fr !important; } .product-header { height: 140px; } }
     html { overflow-x: hidden; }
     h1, h2, h3, h4 { overflow-wrap: break-word; word-break: break-word; }
   </style>
@@ -193,9 +194,7 @@
       <h2 style="font-size:1.375rem; font-weight:800; letter-spacing:-0.02em; color:#1C1814;">Shakti Mat Original Acupressure Mat</h2>
     </div>
     <div class="product-card" style="border-left:5px solid #C46808; background:#FBF4E9;">
-      <div class="product-header" style="background:linear-gradient(145deg,#C46808,#E89828,#F0CE48);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.22"><rect x="10" y="20" width="60" height="40" rx="8" fill="white"/><circle cx="23" cy="32" r="3" fill="#C46808"/><circle cx="35" cy="32" r="3" fill="#C46808"/><circle cx="47" cy="32" r="3" fill="#C46808"/><circle cx="59" cy="32" r="3" fill="#C46808"/><circle cx="23" cy="44" r="3" fill="#C46808"/><circle cx="35" cy="44" r="3" fill="#C46808"/><circle cx="47" cy="44" r="3" fill="#C46808"/><circle cx="59" cy="44" r="3" fill="#C46808"/></svg>
-      </div>
+      <div class="product-header"><img src="https://images.pexels.com/photos/3759094/pexels-photo-3759094.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Best Acupressure Mats" loading="lazy" /></div>
       <div class="product-body">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
           <span class="stars">★★★★½</span>
@@ -227,9 +226,7 @@
       <h2 style="font-size:1.375rem; font-weight:800; letter-spacing:-0.02em; color:#1C1814;">ProsourceFit Acupressure Mat and Pillow Set</h2>
     </div>
     <div class="product-card" style="border-left:5px solid #1A5040; background:#E8F5EC;">
-      <div class="product-header" style="background:linear-gradient(145deg,#1A5040,#2E8060,#58C890);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.22"><rect x="10" y="22" width="60" height="36" rx="8" fill="white"/><circle cx="22" cy="33" r="3" fill="white" opacity="0.5"/><circle cx="34" cy="33" r="3" fill="white" opacity="0.5"/><circle cx="46" cy="33" r="3" fill="white" opacity="0.5"/><circle cx="58" cy="33" r="3" fill="white" opacity="0.5"/><circle cx="22" cy="45" r="3" fill="white" opacity="0.5"/><circle cx="34" cy="45" r="3" fill="white" opacity="0.5"/><circle cx="46" cy="45" r="3" fill="white" opacity="0.5"/><circle cx="58" cy="45" r="3" fill="white" opacity="0.5"/></svg>
-      </div>
+      <div class="product-header"><img src="https://images.pexels.com/photos/3759094/pexels-photo-3759094.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Best Acupressure Mats" loading="lazy" /></div>
       <div class="product-body">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
           <span class="stars">★★★★½</span>
@@ -261,9 +258,7 @@
       <h2 style="font-size:1.375rem; font-weight:800; letter-spacing:-0.02em; color:#1C1814;">Nayoya Acupressure Mat and Pillow Set</h2>
     </div>
     <div class="product-card" style="border-left:5px solid #C8305E; background:#FBEAEF;">
-      <div class="product-header" style="background:linear-gradient(145deg,#C8305E,#E06B42,#F2A06A);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.22"><rect x="10" y="20" width="60" height="42" rx="8" fill="white"/><circle cx="24" cy="32" r="4" fill="white" opacity="0.6"/><circle cx="40" cy="32" r="4" fill="white" opacity="0.6"/><circle cx="56" cy="32" r="4" fill="white" opacity="0.6"/><circle cx="24" cy="48" r="4" fill="white" opacity="0.6"/><circle cx="40" cy="48" r="4" fill="white" opacity="0.6"/><circle cx="56" cy="48" r="4" fill="white" opacity="0.6"/></svg>
-      </div>
+      <div class="product-header"><img src="https://images.pexels.com/photos/3759094/pexels-photo-3759094.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Best Acupressure Mats" loading="lazy" /></div>
       <div class="product-body">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
           <span class="stars">★★★★½</span>
@@ -295,9 +290,7 @@
       <h2 style="font-size:1.375rem; font-weight:800; letter-spacing:-0.02em; color:#1C1814;">Spoonk Hemp Acupressure Mat</h2>
     </div>
     <div class="product-card" style="border-left:5px solid #4C2EB4; background:#EDEAFB;">
-      <div class="product-header" style="background:linear-gradient(145deg,#4C2EB4,#8B52C8,#BF80D8);">
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.22"><rect x="10" y="22" width="60" height="36" rx="8" fill="white"/><circle cx="22" cy="34" r="3.5" fill="white" opacity="0.7"/><circle cx="34" cy="34" r="3.5" fill="white" opacity="0.7"/><circle cx="46" cy="34" r="3.5" fill="white" opacity="0.7"/><circle cx="58" cy="34" r="3.5" fill="white" opacity="0.7"/><circle cx="22" cy="46" r="3.5" fill="white" opacity="0.7"/><circle cx="34" cy="46" r="3.5" fill="white" opacity="0.7"/><circle cx="46" cy="46" r="3.5" fill="white" opacity="0.7"/><circle cx="58" cy="46" r="3.5" fill="white" opacity="0.7"/></svg>
-      </div>
+      <div class="product-header"><img src="https://images.pexels.com/photos/3759094/pexels-photo-3759094.jpeg?auto=compress&cs=tinysrgb&w=600&q=80" alt="Best Acupressure Mats" loading="lazy" /></div>
       <div class="product-body">
         <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem; flex-wrap:wrap;">
           <span class="stars">★★★★☆</span>
