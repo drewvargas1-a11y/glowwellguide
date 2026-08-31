@@ -422,6 +422,7 @@
       .main-nav   { display: none !important; }
       .nav-right  { display: none !important; }
       .nav-hamburger { display: flex !important; }
+      #mob-search-icon { display: flex !important; }
       .banner-tags { display: none; }
     }
 
@@ -473,6 +474,11 @@
         <a href="#" class="nav-link">Fitness</a>
         <a href="blog/index.html" class="nav-link" style="color:#C8305E; font-weight:700;">All Guides</a>
       </nav>
+
+      <!-- Mobile search icon (always visible on mobile, next to hamburger) -->
+      <a href="/search.html" id="mob-search-icon" aria-label="Search" style="display:none; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:transparent; border:1.5px solid #D4CCC8; color:#6B6360; flex-shrink:0; text-decoration:none;">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </a>
 
       <!-- Hamburger (mobile) -->
       <button class="nav-hamburger" id="nav-toggle" aria-label="Open menu" onclick="var m=document.getElementById('mob-menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">
