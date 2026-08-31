@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="dns-prefetch" href="//www.amazon.com" />
+  <link rel="dns-prefetch" href="//m.media-amazon.com" />
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -20,128 +22,144 @@
   <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://lumagridreviews.com/#organization",
-        "name": "LumaGrid Reviews",
-        "url": "https://lumagridreviews.com/",
-        "description": "Independent health, beauty and wellness product reviews and buying guides."
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://lumagridreviews.com/#website",
-        "url": "https://lumagridreviews.com/",
-        "name": "LumaGrid Reviews",
-        "publisher": { "@id": "https://lumagridreviews.com/#organization" }
-      },
-      {
-        "@type": "ItemList",
-        "name": "Top Buying Guides",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Best At-Home LED Light Therapy Devices of 2026",
-            "url": "https://lumagridreviews.com/blog/best-led-light-therapy-devices-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "10 Hair Dryers Stylists Actually Recommend in 2026",
-            "url": "https://lumagridreviews.com/blog/best-hair-dryers-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Best Facial Steamers Under $100 — Dermatologist Tested",
-            "url": "https://lumagridreviews.com/blog/best-facial-steamers-under-100.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "Best Massage Guns for Recovery — Every Budget Covered",
-            "url": "https://lumagridreviews.com/blog/best-massage-guns-recovery.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "name": "Best Electric Shavers for Men — Every Budget",
-            "url": "https://lumagridreviews.com/blog/best-electric-shavers-men-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
-            "name": "Best Hair Styling Tools (2026) — Curlers, Straighteners & Multi-Stylers",
-            "url": "https://lumagridreviews.com/blog/best-hair-styling-tools-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 7,
-            "name": "Best Facial Skincare Devices — Microcurrent, Toning & Cleansing",
-            "url": "https://lumagridreviews.com/blog/best-facial-skincare-devices-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 8,
-            "name": "Foil vs. Rotary Shavers — Which Is Right for You? (2026)",
-            "url": "https://lumagridreviews.com/blog/best-foil-vs-rotary-shavers-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 9,
-            "name": "Best Hot Air Brushes of 2026 — Tested & Ranked",
-            "url": "https://lumagridreviews.com/blog/best-hot-air-brushes-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 10,
-            "name": "Best Recovery Massage Tools of 2026 — Ranked",
-            "url": "https://lumagridreviews.com/blog/best-recovery-massage-tools-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 11,
-            "name": "Best Electric Toothbrushes of 2026 — Tested & Ranked",
-            "url": "https://lumagridreviews.com/blog/best-electric-toothbrushes-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 12,
-            "name": "Best Face Rollers & Gua Sha Tools of 2026 — Ranked",
-            "url": "https://lumagridreviews.com/blog/best-face-rollers-gua-sha-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 13,
-            "name": "Best Neck & Shoulder Massagers of 2026 — Every Budget Covered",
-            "url": "https://lumagridreviews.com/blog/best-neck-shoulder-massagers-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 14,
-            "name": "Best At-Home IPL Hair Removal Devices of 2026",
-            "url": "https://lumagridreviews.com/blog/best-ipl-hair-removal-devices-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 15,
-            "name": "Best Scalp Massagers for Hair Growth of 2026",
-            "url": "https://lumagridreviews.com/blog/best-scalp-massagers-2026.html"
-          },
-          {
-            "@type": "ListItem",
-            "position": 16,
-            "name": "Best Facial Cleansing Brushes of 2026",
-            "url": "https://lumagridreviews.com/blog/best-facial-cleansing-brushes-2026.html"
-          }
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lumagridreviews.com/#organization",
+      "name": "LumaGrid Reviews",
+      "url": "https://lumagridreviews.com/",
+      "description": "Independent health, beauty and wellness product reviews and buying guides.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://lumagridreviews.com/favicon.svg",
+        "width": 200,
+        "height": 200
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lumagridreviews.com/#website",
+      "url": "https://lumagridreviews.com/",
+      "name": "LumaGrid Reviews",
+      "publisher": {
+        "@id": "https://lumagridreviews.com/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://lumagridreviews.com/search.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Top Buying Guides",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Best At-Home LED Light Therapy Devices of 2026",
+          "url": "https://lumagridreviews.com/blog/best-led-light-therapy-devices-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "10 Hair Dryers Stylists Actually Recommend in 2026",
+          "url": "https://lumagridreviews.com/blog/best-hair-dryers-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Best Facial Steamers Under $100 \u2014 Dermatologist Tested",
+          "url": "https://lumagridreviews.com/blog/best-facial-steamers-under-100.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Best Massage Guns for Recovery \u2014 Every Budget Covered",
+          "url": "https://lumagridreviews.com/blog/best-massage-guns-recovery.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Best Electric Shavers for Men \u2014 Every Budget",
+          "url": "https://lumagridreviews.com/blog/best-electric-shavers-men-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Best Hair Styling Tools (2026) \u2014 Curlers, Straighteners & Multi-Stylers",
+          "url": "https://lumagridreviews.com/blog/best-hair-styling-tools-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Best Facial Skincare Devices \u2014 Microcurrent, Toning & Cleansing",
+          "url": "https://lumagridreviews.com/blog/best-facial-skincare-devices-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Foil vs. Rotary Shavers \u2014 Which Is Right for You? (2026)",
+          "url": "https://lumagridreviews.com/blog/best-foil-vs-rotary-shavers-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Best Hot Air Brushes of 2026 \u2014 Tested & Ranked",
+          "url": "https://lumagridreviews.com/blog/best-hot-air-brushes-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Best Recovery Massage Tools of 2026 \u2014 Ranked",
+          "url": "https://lumagridreviews.com/blog/best-recovery-massage-tools-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Best Electric Toothbrushes of 2026 \u2014 Tested & Ranked",
+          "url": "https://lumagridreviews.com/blog/best-electric-toothbrushes-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Best Face Rollers & Gua Sha Tools of 2026 \u2014 Ranked",
+          "url": "https://lumagridreviews.com/blog/best-face-rollers-gua-sha-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Best Neck & Shoulder Massagers of 2026 \u2014 Every Budget Covered",
+          "url": "https://lumagridreviews.com/blog/best-neck-shoulder-massagers-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Best At-Home IPL Hair Removal Devices of 2026",
+          "url": "https://lumagridreviews.com/blog/best-ipl-hair-removal-devices-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Best Scalp Massagers for Hair Growth of 2026",
+          "url": "https://lumagridreviews.com/blog/best-scalp-massagers-2026.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "Best Facial Cleansing Brushes of 2026",
+          "url": "https://lumagridreviews.com/blog/best-facial-cleansing-brushes-2026.html"
+        }
+      ]
+    }
+  ]
+}
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com" defer></script>
   <script>
     tailwind.config = {
       theme: {
@@ -758,7 +776,7 @@
       <div class="products-grid">
 
         <!-- Product 1 -->
-        <a href="https://www.amazon.com/dp/B00JRW7QCC?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+        <a href="https://www.amazon.com/dp/B00JRW7QCC?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow sponsored noopener">
           <div style="height:160px; background:linear-gradient(145deg,#C8305E,#E06B42,#F2C03A); position:relative; overflow:hidden;">
             <img src="images/products/nuface-mini.png" alt="NuFace Mini" style="width:100%; height:100%; object-fit:cover; opacity:0.85; transition:transform 0.4s ease;">
           </div>
@@ -774,7 +792,7 @@
         </a>
 
         <!-- Product 2 -->
-        <a href="https://www.amazon.com/dp/B0B61XH5YT?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+        <a href="https://www.amazon.com/dp/B0B61XH5YT?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow sponsored noopener">
           <div style="height:160px; background:linear-gradient(145deg,#4C2EB4,#8B52C8,#BF80D8); position:relative; overflow:hidden;">
             <img src="images/products/dyson-airwrap.jpg" alt="Dyson Airwrap" style="width:100%; height:100%; object-fit:cover; opacity:0.85; transition:transform 0.4s ease;">
           </div>
@@ -790,7 +808,7 @@
         </a>
 
         <!-- Product 3 -->
-        <a href="https://www.amazon.com/dp/B0BFQJ1T75?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+        <a href="https://www.amazon.com/dp/B0BFQJ1T75?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow sponsored noopener">
           <div style="height:160px; background:linear-gradient(145deg,#157860,#28B094,#65D4BA); position:relative; overflow:hidden;">
             <img src="images/products/foreo-luna4.webp" alt="FOREO LUNA 4" style="width:100%; height:100%; object-fit:cover; opacity:0.85; transition:transform 0.4s ease;">
           </div>
@@ -806,7 +824,7 @@
         </a>
 
         <!-- Product 4 -->
-        <a href="https://www.amazon.com/dp/B0CJ4C9WWX?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow noopener">
+        <a href="https://www.amazon.com/dp/B0CJ4C9WWX?tag=geargridrevie-20" class="product-card" target="_blank" rel="nofollow sponsored noopener">
           <div style="height:160px; background:linear-gradient(145deg,#C46808,#E89828,#F0CE48); position:relative; overflow:hidden;">
             <img src="images/products/theragun-mini2.webp" alt="Theragun Mini 2.0" style="width:100%; height:100%; object-fit:cover; opacity:0.85; transition:transform 0.4s ease;">
           </div>
