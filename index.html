@@ -481,9 +481,11 @@
 
       <!-- Right -->
       <div class="nav-right" style="display:flex; align-items:center; gap:10px;">
-        <button aria-label="Search" style="width:36px; height:36px; border-radius:50%; background:transparent; border:1.5px solid #D4CCC8; color:#6B6360; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:border-color 0.15s, color 0.15s;" onmouseover="this.style.borderColor='#1C1814';this.style.color='#1C1814'" onmouseout="this.style.borderColor='#D4CCC8';this.style.color='#6B6360'">
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        </button>
+        <!-- Desktop search form -->
+        <form action="/search.html" method="get" role="search" style="display:flex;align-items:center;gap:6px;background:#FAF8F5;border:1.5px solid #EDE8E0;border-radius:8px;padding:5px 12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C8305E'" onmouseout="this.style.borderColor='#EDE8E0'">
+          <svg width="13" height="13" fill="none" stroke="#A09896" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" name="q" placeholder="Search guides…" autocomplete="off" style="background:none;border:none;outline:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#1C1814;width:130px;" />
+        </form>
         <a href="#newsletter" class="btn-dark" style="padding:0.5rem 1.1rem;">Get Top Picks</a>
       </div>
     </div>
@@ -491,6 +493,11 @@
 
   <!-- Mobile Nav Menu -->
   <div class="mob-menu" id="mob-menu">
+    <form action="/search.html" method="get" role="search" style="display:flex;align-items:center;gap:8px;margin:1rem 1.5rem;background:#fff;border:1.5px solid #C8305E;border-radius:12px;padding:10px 14px;box-shadow:0 0 12px rgba(200,48,94,0.1);">
+      <svg width="16" height="16" fill="none" stroke="#A09896" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" name="q" placeholder="Search beauty & wellness…" autocomplete="off" style="flex:1;background:none;border:none;outline:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;color:#1C1814;" />
+      <button type="submit" style="background:#C8305E;border:none;color:#fff;font-weight:700;font-size:13px;padding:7px 14px;border-radius:8px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;white-space:nowrap;">Search</button>
+    </form>
     <a href="#">Skincare</a>
     <a href="#">Hair Care</a>
     <a href="#">Wellness</a>

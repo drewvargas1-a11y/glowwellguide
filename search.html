@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Beauty & Wellness Guides | LumaGrid Reviews</title>
+  <meta name="description" content="Search 100+ expert beauty and wellness buying guides on LumaGrid Reviews. Find the best skincare devices, hair tools, wellness gadgets, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://lumagridreviews.com/search.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #FAF8F5; color: #1C1814; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV (matches site) ── */
+    .nav { background: #fff; border-bottom: 1px solid #EDE8E0; position: sticky; top: 0; z-index: 50; }
+    .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 800; color: #1C1814; letter-spacing: -0.02em; }
+    .nav-logo span { color: #C8305E; }
+    .logo-flame { width: 32px; height: 32px; background: linear-gradient(145deg,#C8305E,#E06B42,#F2C03A); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .main-nav { display: flex; align-items: center; gap: 1.75rem; }
+    .nav-link { font-size: 0.875rem; font-weight: 500; color: #6B6360; transition: color 0.15s; }
+    .nav-link:hover { color: #1C1814; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-hamburger { display: none; width: 36px; height: 36px; background: none; border: none; cursor: pointer; color: #1C1814; align-items: center; justify-content: center; }
+
+    .mob-menu { display: none; flex-direction: column; background: #FAF8F5; border-bottom: 2px solid #EDE8E4; position: sticky; top: 60px; z-index: 49; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-size: 1rem; font-weight: 600; color: #1C1814; padding: 1rem 1.5rem; border-bottom: 1px solid #EDE8E4; transition: background 0.12s, color 0.12s; }
+    .mob-menu a:hover { background: #F0EBE6; color: #C8305E; }
+
+    /* mobile search inside mob-menu */
+    .mob-search-form { display: flex; align-items: center; gap: 8px; margin: 1rem 1.5rem; background: #fff; border: 1.5px solid #C8305E; border-radius: 12px; padding: 10px 14px; box-shadow: 0 0 12px rgba(200,48,94,0.1); }
+    .mob-search-form input { flex: 1; background: none; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #1C1814; }
+    .mob-search-form input::placeholder { color: #A09896; }
+    .mob-search-form button { background: #C8305E; border: none; color: #fff; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 8px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; white-space: nowrap; }
+
+    @media (max-width: 768px) { .main-nav, .nav-right { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── SEARCH HERO ── */
+    .search-hero {
+      padding: 60px 1.5rem 48px;
+      background: linear-gradient(160deg, #FDF2EC 0%, #FAF8F5 60%, #F9EEF5 100%);
+      border-bottom: 1px solid #EDE8E0;
+      text-align: center;
+    }
+    .search-hero-inner { max-width: 640px; margin: 0 auto; }
+    .search-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #C8305E; margin-bottom: 14px; }
+    .search-hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: #1C1814; margin-bottom: 28px; }
+    .search-hero h1 em { color: #C8305E; font-style: normal; }
+
+    .search-box { display: flex; align-items: center; background: #fff; border: 2px solid #EDE8E0; border-radius: 14px; padding: 6px 6px 6px 18px; box-shadow: 0 4px 24px rgba(200,48,94,0.08), 0 1px 4px rgba(0,0,0,0.04); transition: border-color 0.2s, box-shadow 0.2s; }
+    .search-box:focus-within { border-color: #C8305E; box-shadow: 0 0 0 4px rgba(200,48,94,0.1), 0 4px 24px rgba(200,48,94,0.12); }
+    .search-box svg { flex-shrink: 0; color: #A09896; }
+    #searchInput { flex: 1; background: none; border: none; outline: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #1C1814; padding: 8px 12px; min-width: 0; }
+    #searchInput::placeholder { color: #A09896; }
+    .search-btn { background: #C8305E; border: none; color: #fff; font-weight: 700; font-size: 14px; padding: 12px 22px; border-radius: 10px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; white-space: nowrap; transition: background 0.2s, box-shadow 0.2s; flex-shrink: 0; }
+    .search-btn:hover { background: #A8244C; box-shadow: 0 4px 16px rgba(200,48,94,0.35); }
+    .search-count { margin-top: 14px; font-size: 13px; color: #A09896; min-height: 20px; }
+
+    /* ── CATEGORY FILTERS ── */
+    .filters-bar { padding: 18px 1.5rem; background: #fff; border-bottom: 1px solid #EDE8E0; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 16px; border-radius: 100px; border: 1.5px solid #EDE8E0; font-size: 12px; font-weight: 600; color: #6B6360; background: none; cursor: pointer; white-space: nowrap; transition: all 0.15s; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .filter-btn:hover { border-color: #C8305E; color: #C8305E; background: #FDE4EC; }
+    .filter-btn.active { background: #C8305E; border-color: #C8305E; color: #fff; }
+
+    /* ── RESULTS ── */
+    .results-wrap { max-width: 1200px; margin: 0 auto; padding: 40px 1.5rem 80px; }
+
+    .state-msg { text-align: center; padding: 64px 20px; color: #A09896; }
+    .state-msg .big { font-size: 52px; font-weight: 800; color: #EDE8E0; margin-bottom: 12px; }
+    .state-msg p { font-size: 14px; color: #A09896; line-height: 1.7; }
+    .tip-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
+    .tip-pill { background: #fff; border: 1.5px solid #EDE8E0; border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 600; color: #6B6360; cursor: pointer; transition: all 0.15s; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .tip-pill:hover { border-color: #C8305E; color: #C8305E; background: #FDE4EC; }
+
+    .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    @media (max-width: 900px) { .results-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 520px) { .results-grid { grid-template-columns: 1fr; } }
+
+    /* Result card — cream theme */
+    .result-card { background: #fff; border: 1.5px solid #EDE8E0; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .result-card:hover { border-color: #C8305E; transform: translateY(-3px); box-shadow: 0 8px 32px rgba(200,48,94,0.12), 0 2px 8px rgba(0,0,0,0.06); }
+    .result-card-img { aspect-ratio: 16/9; overflow: hidden; background: #F5F0EB; position: relative; }
+    .result-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; display: block; }
+    .result-card:hover .result-card-img img { transform: scale(1.04); }
+    .result-cat-badge { position: absolute; top: 10px; left: 10px; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; background: rgba(255,255,255,0.92); color: #C8305E; border: 1px solid rgba(200,48,94,0.2); }
+    .result-card-body { padding: 16px; display: flex; flex-direction: column; flex: 1; }
+    .result-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .result-cat { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #C8305E; }
+    .result-type { font-size: 10px; color: #A09896; letter-spacing: 0.06em; text-transform: uppercase; }
+    .result-title { font-size: 15px; font-weight: 700; color: #1C1814; line-height: 1.3; margin-bottom: 8px; }
+    .result-desc { font-size: 12px; color: #6B6360; line-height: 1.6; flex: 1; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .result-read { font-size: 12px; font-weight: 700; color: #C8305E; }
+
+    mark { background: rgba(200,48,94,0.15); color: #1C1814; border-radius: 2px; padding: 0 2px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <div class="logo-flame">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2C8 2 5 5 5 8.5C5 10.4 6.3 12 8 12C9.7 12 11 10.4 11 8.5C11 5 8 2 8 2Z" fill="white" opacity="0.9"/>
+          <path d="M8 6.5C8 6.5 6.7 7.8 6.7 9.2C6.7 10.1 7.25 10.8 8 10.8C8.75 10.8 9.3 10.1 9.3 9.2C9.3 7.8 8 6.5 8 6.5Z" fill="white"/>
+        </svg>
+      </div>
+      LumaGrid<span>Reviews</span>
+    </a>
+    <nav class="main-nav">
+      <a href="skincare-devices.html" class="nav-link">Skincare</a>
+      <a href="hair-tools.html" class="nav-link">Hair Care</a>
+      <a href="wellness-recovery.html" class="nav-link">Wellness</a>
+      <a href="beauty-gadgets.html" class="nav-link">Beauty Tech</a>
+      <a href="blog/index.html" class="nav-link" style="color:#C8305E;font-weight:700;">All Guides</a>
+    </nav>
+    <div class="nav-right">
+      <!-- Desktop search form -->
+      <form action="/search.html" method="get" role="search" style="display:flex;align-items:center;gap:6px;background:#FAF8F5;border:1.5px solid #EDE8E0;border-radius:8px;padding:5px 12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#C8305E'" onmouseout="if(document.activeElement.name!=='q')this.style.borderColor='#EDE8E0'">
+        <svg width="13" height="13" fill="none" stroke="#A09896" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" name="q" placeholder="Search guides…" autocomplete="off" style="background:none;border:none;outline:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#1C1814;width:140px;" />
+      </form>
+    </div>
+    <button class="nav-hamburger" id="nav-toggle" aria-label="Open menu" onclick="document.getElementById('mob-menu').classList.toggle('open')">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mob-menu">
+  <form class="mob-search-form" action="/search.html" method="get" role="search">
+    <svg width="16" height="16" fill="none" stroke="#A09896" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="search" name="q" placeholder="Search beauty & wellness…" autocomplete="off" />
+    <button type="submit">Search</button>
+  </form>
+  <a href="skincare-devices.html">Skincare</a>
+  <a href="hair-tools.html">Hair Care</a>
+  <a href="wellness-recovery.html">Wellness</a>
+  <a href="beauty-gadgets.html">Beauty Tech</a>
+  <a href="blog/index.html" style="color:#C8305E;">All Guides</a>
+</div>
+
+<!-- HERO SEARCH -->
+<div class="search-hero">
+  <div class="search-hero-inner">
+    <p class="search-eyebrow">✦ Search LumaGrid Reviews</p>
+    <h1>Find Expert <em>Beauty & Wellness</em> Guides</h1>
+    <div class="search-box">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input id="searchInput" type="search" placeholder="Search serums, hair dryers, massage guns…" autocomplete="off" autocorrect="off" spellcheck="false" />
+      <button class="search-btn" onclick="doSearch()">Search</button>
+    </div>
+    <p class="search-count" id="searchCount">100+ expert beauty & wellness buying guides</p>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <button class="filter-btn active" data-cat="All" onclick="setFilter(this)">All</button>
+  <button class="filter-btn" data-cat="Skincare" onclick="setFilter(this)">🧴 Skincare</button>
+  <button class="filter-btn" data-cat="Hair Care" onclick="setFilter(this)">💇 Hair Care</button>
+  <button class="filter-btn" data-cat="Wellness & Recovery" onclick="setFilter(this)">🌿 Wellness</button>
+  <button class="filter-btn" data-cat="Beauty & Wellness" onclick="setFilter(this)">✨ Beauty</button>
+  <button class="filter-btn" data-cat="Body Care" onclick="setFilter(this)">🫧 Body Care</button>
+  <button class="filter-btn" data-cat="Hair Removal & Grooming" onclick="setFilter(this)">✂️ Grooming</button>
+  <button class="filter-btn" data-cat="Makeup" onclick="setFilter(this)">💄 Makeup</button>
+  <button class="filter-btn" data-cat="Supplements" onclick="setFilter(this)">💊 Supplements</button>
+  <button class="filter-btn" data-cat="Fitness" onclick="setFilter(this)">💪 Fitness</button>
+  <button class="filter-btn" data-cat="Gift Guides" onclick="setFilter(this)">🎁 Gifts</button>
+</div>
+
+<!-- RESULTS -->
+<div class="results-wrap">
+  <div id="resultsContainer">
+    <div class="state-msg" id="emptyState">
+      <div class="big">100+</div>
+      <p>Expert buying guides across skincare, hair care,<br>wellness devices, and beauty tech.</p>
+      <div class="tip-row">
+        <span class="tip-pill" onclick="quickSearch('face serum')">Face serum</span>
+        <span class="tip-pill" onclick="quickSearch('hair dryer')">Hair dryer</span>
+        <span class="tip-pill" onclick="quickSearch('massage gun')">Massage gun</span>
+        <span class="tip-pill" onclick="quickSearch('LED light therapy')">LED light therapy</span>
+        <span class="tip-pill" onclick="quickSearch('vitamin C')">Vitamin C</span>
+        <span class="tip-pill" onclick="quickSearch('curling iron')">Curling iron</span>
+        <span class="tip-pill" onclick="quickSearch('eye cream')">Eye cream</span>
+        <span class="tip-pill" onclick="quickSearch('biotin')">Biotin</span>
+      </div>
+    </div>
+    <div class="results-grid" id="resultsGrid" style="display:none"></div>
+  </div>
+</div>
+
+<script>
+let INDEX = [];
+let activeFilter = 'All';
+const input  = document.getElementById('searchInput');
+const grid   = document.getElementById('resultsGrid');
+const empty  = document.getElementById('emptyState');
+const count  = document.getElementById('searchCount');
+
+fetch('/search-index.json')
+  .then(r => r.json())
+  .then(data => {
+    INDEX = data;
+    const q = new URLSearchParams(location.search).get('q') || '';
+    if (q) { input.value = q; render(q); }
+  });
+
+function score(post, tokens) {
+  let s = 0;
+  const title = post.title.toLowerCase();
+  const desc  = (post.desc || '').toLowerCase();
+  const cat   = post.cat.toLowerCase();
+  for (const tok of tokens) {
+    if (title.includes(tok)) s += title === tok ? 100 : title.startsWith(tok) ? 60 : 40;
+    if (desc.includes(tok))  s += 15;
+    if (cat.includes(tok))   s += 10;
+  }
+  return s;
+}
+
+function highlight(text, tokens) {
+  if (!tokens.length) return text;
+  const re = new RegExp(`(${tokens.map(t => t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')})`, 'gi');
+  return text.replace(re, '<mark>$1</mark>');
+}
+
+function render(query) {
+  const tokens = query.trim().toLowerCase().split(/\s+/).filter(t => t.length > 1);
+  if (!tokens.length && activeFilter === 'All') {
+    grid.style.display = 'none'; empty.style.display = 'block';
+    count.textContent = '100+ expert beauty & wellness buying guides';
+    return;
+  }
+  let results = INDEX;
+  if (activeFilter !== 'All') results = results.filter(p => p.cat === activeFilter);
+  if (tokens.length) {
+    results = results.map(p => ({...p, _score: score(p, tokens)})).filter(p => p._score > 0).sort((a,b) => b._score - a._score);
+  }
+  empty.style.display = 'none'; grid.style.display = 'grid';
+  if (!results.length) {
+    grid.innerHTML = `<div class="state-msg" style="grid-column:1/-1"><div class="big">Hmm</div><p>No results for "<strong>${query}</strong>".<br>Try a broader term or browse a category above.</p></div>`;
+    count.textContent = 'No results found'; return;
+  }
+  count.textContent = `${results.length} result${results.length===1?'':'s'}${activeFilter!=='All'?' in '+activeFilter:''}`;
+  const fallback = 'https://images.pexels.com/photos/3762875/pexels-photo-3762875.jpeg?auto=compress&cs=tinysrgb&w=600&q=80';
+  grid.innerHTML = results.slice(0,60).map(p => {
+    const img = p.image || fallback;
+    return `<a class="result-card" href="${p.url}">
+      <div class="result-card-img">
+        <img src="${img}" alt="${p.title}" loading="lazy" onerror="this.src='${fallback}'" />
+        <span class="result-cat-badge">${p.cat}</span>
+      </div>
+      <div class="result-card-body">
+        <div class="result-meta"><span class="result-cat">${p.cat}</span><span class="result-type">Guide</span></div>
+        <div class="result-title">${highlight(p.title, tokens)}</div>
+        <div class="result-desc">${highlight(p.desc||'', tokens)}</div>
+        <span class="result-read">Read Guide →</span>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+let debounce;
+input.addEventListener('input', () => { clearTimeout(debounce); debounce = setTimeout(() => render(input.value), 200); });
+input.addEventListener('keydown', e => { if (e.key==='Enter') doSearch(); });
+
+function doSearch() {
+  const q = input.value.trim();
+  if (q) history.replaceState(null,'',`?q=${encodeURIComponent(q)}`);
+  render(q);
+}
+function setFilter(btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active'); activeFilter = btn.dataset.cat; render(input.value);
+}
+function quickSearch(term) { input.value = term; render(term); }
+</script>
+</body>
+</html>
