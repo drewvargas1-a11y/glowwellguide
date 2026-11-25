@@ -15,10 +15,12 @@
 - If the server is already running, do not start a second instance.
 
 ## Screenshot Workflow
-- Puppeteer is installed at `C:/Users/nateh/AppData/Local/Temp/puppeteer-test/`. Chrome cache is at `C:/Users/nateh/.cache/puppeteer/`.
-- **Always screenshot from localhost:** `node screenshot.mjs http://localhost:3003`
+- Machine: macOS. Puppeteer is installed per project in `./node_modules` (run `npm install` if it's missing).
+- Puppeteer's bundled Chrome is NOT installed. Use the system Chrome by setting `PUPPETEER_EXECUTABLE_PATH` on every screenshot command:
+  `PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" node screenshot.mjs http://localhost:3003`
+- **Always screenshot from localhost**, never `file:///`.
 - Screenshots are saved automatically to `./temporary screenshots/screenshot-N.png` (auto-incremented, never overwritten).
-- Optional label suffix: `node screenshot.mjs http://localhost:3003 label` → saves as `screenshot-N-label.png`
+- Optional label suffix: add a label after the URL (`... node screenshot.mjs http://localhost:3003 label`) → saves as `screenshot-N-label.png`
 - `screenshot.mjs` lives in the project root. Use it as-is.
 - After screenshotting, read the PNG from `temporary screenshots/` with the Read tool — Claude can see and analyze the image directly.
 - When comparing, be specific: "heading is 32px but reference shows ~24px", "card gap is 16px but should be 24px"
